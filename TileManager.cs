@@ -50,13 +50,28 @@ namespace CodeABitLitGame
             currentBoard = this;
         }
 
-        public bool HasSpaceForMovement(Rectangle rectangle)
+        public bool HasSpaceForMovement(Rectangle rectangle, GameObject gameObject)
         {
             foreach(Wall wall in walls)
             {
                 if (wall.rectangle.Intersects(rectangle))
                 {
                     return false;
+                }
+            }
+
+            if(gameObject is Enemy)
+            {
+                if (Game1.player.positionRectangle.Intersects(rectangle)) { return false; }
+            }
+            else
+            {
+                foreach (GameObject enemy in enemies)
+                {
+                    if (enemy.positionRectangle.Intersects(rectangle))
+                    {
+                        return false;
+                    }
                 }
             }
 

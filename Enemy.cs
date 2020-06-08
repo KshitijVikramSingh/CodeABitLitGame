@@ -6,11 +6,8 @@ using Microsoft.Xna.Framework.Content;
 
 namespace CodeABitLitGame
 {
-    class Enemy
+    class Enemy : GameObject
     {
-        Texture2D texture;
-        Vector2 position, targetPosition;
-
         int speed = 4;
 
         public enum awarenessState { aware, unaware };
@@ -20,7 +17,7 @@ namespace CodeABitLitGame
 
         public Enemy(ContentManager content, Vector2 position)
         {
-            texture = content.Load<Texture2D>("Enemy");
+            Texture = content.Load<Texture2D>("Enemy");
 
             this.position = position;
             targetPosition = position;
@@ -29,10 +26,8 @@ namespace CodeABitLitGame
             chaseTargets.Enqueue(targetPosition);
         }
 
-        public void Update()
+        public override void Update()
         {
-            targetPosition = chaseTargets.Peek();
-
             if (targetPosition != position)
             {
                 if (position.X < targetPosition.X) { position.X += speed; }
@@ -42,10 +37,27 @@ namespace CodeABitLitGame
             }
             else
             {
-                if (Game1.canMove && chaseTargets.Count > 1)
+                if (Game1.canMove && chaseTargets.Count > 0)
                 {
-                    chaseTargets.Dequeue();
+                    Vector2 newTarget = chaseTargets.Dequeue();
                     Game1.canMove = false;
+
+                    if (newTarget.X > targetPosition.X && BoardLayout.currentBoard.HasSpaceForMovement(rightRectangle, this))
+                    {
+                        targetPosition.X += 32;
+                    }
+                    else if (newTarget.X < targetPosition.X && BoardLayout.currentBoard.HasSpaceForMovement(leftRectangle, this))
+                    {
+                        targetPosition.X -= 32;
+                    }
+                    else if (newTarget.Y < targetPosition.Y && BoardLayout.currentBoard.HasSpaceForMovement(upRectangle, this))
+                    {
+                        targetPosition.Y -= 32;
+                    }
+                    else if (newTarget.Y > targetPosition.Y && BoardLayout.currentBoard.HasSpaceForMovement(downRectangle, this))
+                    {
+                        targetPosition.Y += 32;
+                    }
                 }
             }
 
@@ -57,11 +69,8 @@ namespace CodeABitLitGame
                     Game1.canMove = false;
                 }
             }
-        }
 
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(texture, position, Color.White);
+            base.Update();
         }
     }
 }

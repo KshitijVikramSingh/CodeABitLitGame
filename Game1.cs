@@ -62,6 +62,8 @@ namespace CodeABitLitGame
 
             if(inputTimer >= inputDelay)
             {
+                if(JustKeyPressed(Keys.A) || JustKeyPressed(Keys.D) || JustKeyPressed(Keys.W) || JustKeyPressed(Keys.S)) { canMove = true; }
+
                 callObjectUpdates();
 
                 inputTimer = 0;

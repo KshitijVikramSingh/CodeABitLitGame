@@ -17,6 +17,8 @@ namespace CodeABitLitGame
 
         int LevelCount = 0;
 
+        float inputTimer, inputDelay = 25;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -52,13 +54,27 @@ namespace CodeABitLitGame
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            inputTimer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+
             newState = Keyboard.GetState();
 
-            player.Update();
+            if(inputTimer >= inputDelay)
+            {
+                if(newState != oldState)
+                {
+                    callObjectUpdates();
+                    inputTimer = 0;
+                }
+            }
 
             oldState = newState;
 
             base.Update(gameTime);
+        }
+
+        void callObjectUpdates()
+        {
+            player.Update();
         }
 
         protected override void Draw(GameTime gameTime)

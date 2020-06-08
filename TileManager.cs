@@ -11,6 +11,8 @@ namespace CodeABitLitGame
         public static BoardLayout currentBoard { get; private set; }
 
         public List<Wall> walls;
+        public List<Enemy> enemies;
+
         public Vector2 playerPosition;
 
         public BoardLayout(ContentManager content, string Name)
@@ -20,6 +22,7 @@ namespace CodeABitLitGame
             char[,] levelLayout = LevelManager.LevelLayout;
 
             walls = new List<Wall>();
+            enemies = new List<Enemy>();
 
             for (int x = 0; x < LevelManager.MapWidth; x++)
             {
@@ -30,6 +33,11 @@ namespace CodeABitLitGame
                     if (levelLayout[x, y] == '#')
                     {
                         walls.Add(new Wall(content.Load<Texture2D>("Wall"), tilePosition));
+                    }
+
+                    if (levelLayout[x, y] == '!')
+                    {
+                        enemies.Add(new Enemy(content, tilePosition));
                     }
 
                     if (levelLayout[x, y] == '@')
@@ -88,6 +96,11 @@ namespace CodeABitLitGame
                         if (mapRawData[row * Width + column].ToVector4() == new Vector4(0, 0, 0, 1))
                         {
                             LevelLayout[column, row] = '#';
+                        }
+
+                        if (mapRawData[row * Width + column].ToVector4() == new Vector4(1, 0, 0, 1))
+                        {
+                            LevelLayout[column, row] = '!';
                         }
 
                         if (mapRawData[row * Width + column].ToVector4() == new Vector4(1, 1, 1, 1))

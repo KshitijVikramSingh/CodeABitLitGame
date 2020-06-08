@@ -4,11 +4,13 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/Enemy.png</File>
     <File>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/Level0.png</File>
     <File>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/Player.png</File>
     <File>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/Wall.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

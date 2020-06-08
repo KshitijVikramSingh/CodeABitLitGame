@@ -17,7 +17,7 @@ namespace CodeABitLitGame
 
         int LevelCount = 0;
 
-        float inputTimer, inputDelay = 25;
+        float inputTimer, inputDelay = 5;
 
         public Game1()
         {
@@ -60,11 +60,8 @@ namespace CodeABitLitGame
 
             if(inputTimer >= inputDelay)
             {
-                if(newState != oldState)
-                {
-                    callObjectUpdates();
-                    inputTimer = 0;
-                }
+                callObjectUpdates();
+                inputTimer = 0;
             }
 
             oldState = newState;
@@ -75,6 +72,11 @@ namespace CodeABitLitGame
         void callObjectUpdates()
         {
             player.Update();
+
+            foreach(Enemy enemy in boardLayout.enemies)
+            {
+                enemy.Update();
+            }
         }
 
         protected override void Draw(GameTime gameTime)
@@ -84,6 +86,11 @@ namespace CodeABitLitGame
             spriteBatch.Begin();
 
             player.Draw(spriteBatch);
+
+            foreach(Enemy enemy in boardLayout.enemies)
+            {
+                enemy.Draw(spriteBatch);
+            }
 
             foreach(Wall wall in boardLayout.walls)
             {

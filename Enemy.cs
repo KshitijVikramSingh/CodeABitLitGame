@@ -14,7 +14,7 @@ namespace CodeABitLitGame
         int speed = 4;
 
         public enum awarenessState { aware, unaware };
-        public awarenessState awareness = awarenessState.unaware;
+        public awarenessState awareness = awarenessState.aware;
 
         public Queue<Vector2> chaseTargets;
 
@@ -26,19 +26,37 @@ namespace CodeABitLitGame
             targetPosition = position;
 
             chaseTargets = new Queue<Vector2>();
+            chaseTargets.Enqueue(targetPosition);
         }
 
         public void Update()
         {
-            if(targetPosition != position)
+            targetPosition = chaseTargets.Peek();
+
+            if (targetPosition != position)
             {
                 if (position.X < targetPosition.X) { position.X += speed; }
                 else if (position.X > targetPosition.X) { position.X -= speed; }
                 else if (position.Y < targetPosition.Y) { position.Y += speed; }
                 else if (position.Y > targetPosition.Y) { position.Y -= speed; }
             }
+            else
+            {
+                if (Game1.canMove && chaseTargets.Count > 1)
+                {
+                    chaseTargets.Dequeue();
+                    Game1.canMove = false;
+                }
+            }
 
-
+            if (awareness == awarenessState.aware)
+            {
+                if(targetPosition != Game1.player.targetPosition && Game1.canMove)
+                {
+                    chaseTargets.Enqueue(Game1.player.targetPosition);
+                    Game1.canMove = false;
+                }
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)

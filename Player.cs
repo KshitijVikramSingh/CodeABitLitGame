@@ -7,17 +7,15 @@ using Microsoft.Xna.Framework.Input;
 
 namespace CodeABitLitGame
 {
-    class Player
+    public class Player
     {
         public Rectangle positionRectangle, leftRectangle, rightRectangle, upRectangle, downRectangle;
 
         Texture2D texture;
 
-        public Vector2 position;
+        public Vector2 position, targetPosition;
 
         int speed = 4;
-
-        Vector2 targetPosition;
 
         public Player(ContentManager content, Vector2 position)
         {
@@ -46,18 +44,22 @@ namespace CodeABitLitGame
                 if (Game1.JustKeyPressed(Keys.D) && BoardLayout.currentBoard.HasSpaceForMovement(rightRectangle))
                 {
                     targetPosition.X += 32;
+                    Game1.canMove = true;
                 }
                 else if (Game1.JustKeyPressed(Keys.A) && BoardLayout.currentBoard.HasSpaceForMovement(leftRectangle))
                 {
                     targetPosition.X -= 32;
+                    Game1.canMove = true;
                 }
                 else if (Game1.JustKeyPressed(Keys.W) && BoardLayout.currentBoard.HasSpaceForMovement(upRectangle))
                 {
                     targetPosition.Y -= 32;
+                    Game1.canMove = true;
                 }
                 else if (Game1.JustKeyPressed(Keys.S) && BoardLayout.currentBoard.HasSpaceForMovement(downRectangle))
                 {
                     targetPosition.Y += 32;
+                    Game1.canMove = true;
                 }
             }
             else

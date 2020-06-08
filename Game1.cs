@@ -13,7 +13,9 @@ namespace CodeABitLitGame
 
         BoardLayout boardLayout;
 
-        Player player;
+        public static Player player;
+
+        public static bool canMove = true;
 
         int LevelCount = 0;
 
@@ -61,6 +63,7 @@ namespace CodeABitLitGame
             if(inputTimer >= inputDelay)
             {
                 callObjectUpdates();
+
                 inputTimer = 0;
             }
 

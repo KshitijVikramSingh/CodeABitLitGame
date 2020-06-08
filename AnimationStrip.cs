@@ -13,7 +13,7 @@ namespace CodeABitLitGame
         int oldFrame;
 
         public float frameTimer = 0;
-        public float frameDelay = 0.06f;
+        public float frameDelay = 0.08f;
 
         public bool loopAnimation = true;
         public bool finishedPlaying = false;

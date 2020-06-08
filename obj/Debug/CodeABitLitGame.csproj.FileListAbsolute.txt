@@ -21,3 +21,5 @@ C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyC
 C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Debug\Content\Player.xnb
 C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Debug\Content\Wall.xnb
 C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Debug\Content\Enemy.xnb
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Debug\Content\Door.xnb
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Debug\Content\Key.xnb

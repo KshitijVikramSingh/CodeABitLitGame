@@ -35,31 +35,6 @@ namespace CodeABitLitGame
                 else if (position.Y < targetPosition.Y) { position.Y += speed; }
                 else if (position.Y > targetPosition.Y) { position.Y -= speed; }
             }
-            else
-            {
-                if (Game1.canMove && chaseTargets.Count > 0)
-                {
-                    Vector2 newTarget = chaseTargets.Dequeue();
-                    Game1.canMove = false;
-
-                    if (newTarget.X > targetPosition.X && BoardLayout.currentBoard.HasSpaceForMovement(rightRectangle, this))
-                    {
-                        targetPosition.X += 32;
-                    }
-                    else if (newTarget.X < targetPosition.X && BoardLayout.currentBoard.HasSpaceForMovement(leftRectangle, this))
-                    {
-                        targetPosition.X -= 32;
-                    }
-                    else if (newTarget.Y < targetPosition.Y && BoardLayout.currentBoard.HasSpaceForMovement(upRectangle, this))
-                    {
-                        targetPosition.Y -= 32;
-                    }
-                    else if (newTarget.Y > targetPosition.Y && BoardLayout.currentBoard.HasSpaceForMovement(downRectangle, this))
-                    {
-                        targetPosition.Y += 32;
-                    }
-                }
-            }
 
             if (awareness == awarenessState.aware)
             {
@@ -67,6 +42,36 @@ namespace CodeABitLitGame
                 {
                     chaseTargets.Enqueue(Game1.player.targetPosition);
                     Game1.canMove = false;
+                }
+                else
+                {
+                    if (Game1.canMove && chaseTargets.Count > 0)
+                    {
+                        Vector2 newTarget = targetPosition;
+
+                        if (targetPosition == chaseTargets.Peek())
+                        {
+                            newTarget = chaseTargets.Dequeue();
+                            Game1.canMove = false;
+                        }
+
+                        if (newTarget.X > targetPosition.X && BoardLayout.currentBoard.HasSpaceForMovement(rightRectangle, this))
+                        {
+                            targetPosition.X += 32;
+                        }
+                        else if (newTarget.X < targetPosition.X && BoardLayout.currentBoard.HasSpaceForMovement(leftRectangle, this))
+                        {
+                            targetPosition.X -= 32;
+                        }
+                        else if (newTarget.Y < targetPosition.Y && BoardLayout.currentBoard.HasSpaceForMovement(upRectangle, this))
+                        {
+                            targetPosition.Y -= 32;
+                        }
+                        else if (newTarget.Y > targetPosition.Y && BoardLayout.currentBoard.HasSpaceForMovement(downRectangle, this))
+                        {
+                            targetPosition.Y += 32;
+                        }
+                    }
                 }
             }
 

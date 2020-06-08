@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 
 namespace CodeABitLitGame
 {
@@ -12,6 +13,8 @@ namespace CodeABitLitGame
         public static KeyboardState newState, oldState;
 
         BoardLayout boardLayout;
+
+        public static Dictionary<string, string> itemPairDictionary;
 
         public static Player player;
 
@@ -39,6 +42,10 @@ namespace CodeABitLitGame
             boardLayout = new BoardLayout(Content, "Level" + LevelCount.ToString());
 
             player = new Player(Content, boardLayout.playerPosition);
+
+            itemPairDictionary = new Dictionary<string, string>();
+            itemPairDictionary.Add("Key", "Door");
+            itemPairDictionary.Add("Axe", "Wall");
         }
 
         protected override void UnloadContent()
@@ -69,6 +76,15 @@ namespace CodeABitLitGame
                 inputTimer = 0;
             }
 
+            if(player.currentItem != null && player.currentItemPair != null && itemPairDictionary[player.currentItem.Name] == player.currentItemPair.Name)
+            {
+                boardLayout.items.Remove(player.currentItem);
+                boardLayout.itemPairs.Remove(player.currentItemPair);
+
+                player.currentItem = null;
+                player.currentItemPair = null;
+            }
+
             oldState = newState;
 
             base.Update(gameTime);
@@ -81,6 +97,16 @@ namespace CodeABitLitGame
             foreach(Enemy enemy in boardLayout.enemies)
             {
                 enemy.Update();
+            }
+
+            foreach (Item item in boardLayout.items)
+            {
+                item.Update();
+            }
+
+            foreach (ItemPair itemPair in boardLayout.itemPairs)
+            {
+                itemPair.Update();
             }
         }
 
@@ -100,6 +126,16 @@ namespace CodeABitLitGame
             foreach(Wall wall in boardLayout.walls)
             {
                 wall.Draw(spriteBatch);
+            }
+
+            foreach (Item item in boardLayout.items)
+            {
+                item.Draw(spriteBatch);
+            }
+
+            foreach (ItemPair itemPair in boardLayout.itemPairs)
+            {
+                itemPair.Draw(spriteBatch);
             }
 
             spriteBatch.End();

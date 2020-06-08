@@ -11,12 +11,18 @@ namespace CodeABitLitGame
     {        
         int speed = 4;
 
+        public Item currentItem;
+        public ItemPair currentItemPair;
+
         public Player(ContentManager content, Vector2 position)
         {
             Texture = content.Load<Texture2D>("Player");
 
             this.position = position;
             targetPosition = position;
+
+            currentItem = null;
+            currentItemPair = null;
         }
 
         public override void Update()

@@ -12,6 +12,8 @@ namespace CodeABitLitGame
 
         public List<Wall> walls;
         public List<Enemy> enemies;
+        public List<Item> items;
+        public List<ItemPair> itemPairs;
 
         public Vector2 playerPosition;
 
@@ -23,6 +25,8 @@ namespace CodeABitLitGame
 
             walls = new List<Wall>();
             enemies = new List<Enemy>();
+            items = new List<Item>();
+            itemPairs = new List<ItemPair>();
 
             for (int x = 0; x < LevelManager.MapWidth; x++)
             {
@@ -38,6 +42,16 @@ namespace CodeABitLitGame
                     if (levelLayout[x, y] == '!')
                     {
                         enemies.Add(new Enemy(content, tilePosition));
+                    }
+
+                    if (levelLayout[x, y] == 'K')
+                    {
+                        items.Add(new Item(content.Load<Texture2D>("Key"), tilePosition, "Key"));
+                    }
+
+                    if (levelLayout[x, y] == 'D')
+                    {
+                        itemPairs.Add(new ItemPair(content.Load<Texture2D>("Door"), tilePosition, "Door"));
                     }
 
                     if (levelLayout[x, y] == '@')
@@ -59,6 +73,17 @@ namespace CodeABitLitGame
                     return false;
                 }
             }
+
+            foreach (ItemPair itemPair in itemPairs)
+            {
+                if (itemPair.rectangle.Intersects(rectangle))
+                {
+                    Game1.player.currentItemPair = itemPair;
+                    return false;
+                }
+            }
+
+            Game1.player.currentItemPair = null;
 
             if(gameObject is Enemy)
             {
@@ -116,6 +141,16 @@ namespace CodeABitLitGame
                         if (mapRawData[row * Width + column].ToVector4() == new Vector4(1, 0, 0, 1))
                         {
                             LevelLayout[column, row] = '!';
+                        }
+
+                        if (mapRawData[row * Width + column].ToVector4() == new Vector4(1, 1, 0, 1))
+                        {
+                            LevelLayout[column, row] = 'K';
+                        }
+
+                        if (mapRawData[row * Width + column].ToVector4() == new Vector4(0, 0, 1, 1))
+                        {
+                            LevelLayout[column, row] = 'D';
                         }
 
                         if (mapRawData[row * Width + column].ToVector4() == new Vector4(1, 1, 1, 1))

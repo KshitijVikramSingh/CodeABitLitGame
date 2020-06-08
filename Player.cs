@@ -14,6 +14,8 @@ namespace CodeABitLitGame
         public Item currentItem;
         public ItemPair currentItemPair;
 
+        public int health = 1;
+
         public Player(ContentManager content, Vector2 position)
         {
             Texture = content.Load<Texture2D>("Player");
@@ -53,6 +55,9 @@ namespace CodeABitLitGame
                 else if (position.Y < targetPosition.Y) { position.Y += speed; }
                 else if (position.Y > targetPosition.Y) { position.Y -= speed; }
             }
+
+            //if(currentItem != null) Console.WriteLine(currentItem.Name);
+            //if(currentItemPair != null) Console.WriteLine(currentItemPair.Name);
 
             base.Update();
         }

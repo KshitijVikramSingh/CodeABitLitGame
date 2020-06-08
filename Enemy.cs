@@ -38,9 +38,9 @@ namespace CodeABitLitGame
                 }
             }
 
-            foreach(ItemPair itemPair in BoardLayout.currentBoard.itemPairs)
+            foreach (ItemPair itemPair in BoardLayout.currentBoard.itemPairs)
             {
-                if(LineHelperMethods.checkLineRectangleIntersection(playerVisiblityLine, itemPair.rectangle))
+                if (LineHelperMethods.checkLineRectangleIntersection(playerVisiblityLine, itemPair.rectangle))
                 {
                     return false;
                 }
@@ -55,11 +55,17 @@ namespace CodeABitLitGame
 
             if(awareness == awarenessState.unaware)
             {
-                if(playerVisiblityLine.Length() <= 96 && isPlayerVisible()) { awareness = awarenessState.aware; }
+                if(playerVisiblityLine.Length() <= 160 && isPlayerVisible()) { awareness = awarenessState.aware; }
             }
             else
             {
-                if(playerVisiblityLine.Length() >= 160) { awareness = awarenessState.unaware; }
+                if(playerVisiblityLine.Length() >= 240)
+                {
+                    awareness = awarenessState.unaware;
+
+                    chaseTargets.Clear();
+                    chaseTargets.Enqueue(targetPosition);
+                }
             }
 
             if (targetPosition != position)
@@ -76,6 +82,13 @@ namespace CodeABitLitGame
             {
                 newTarget = chaseTargets.Dequeue();
                 Game1.canMove = false;
+            }
+
+            if (Vector2.Distance(Game1.player.position, position) < Vector2.Distance(newTarget, position))
+            {
+                chaseTargets.Clear();
+                chaseTargets.Enqueue(Game1.player.targetPosition);
+                newTarget = Game1.player.targetPosition;
             }
 
             if (Game1.canMove)
@@ -100,7 +113,7 @@ namespace CodeABitLitGame
 
             if (awareness == awarenessState.aware)
             {
-                if(targetPosition != Game1.player.targetPosition && Game1.canMove)
+                if (targetPosition != Game1.player.targetPosition && Game1.canMove)
                 {
                     chaseTargets.Enqueue(Game1.player.targetPosition);
                     Game1.canMove = false;

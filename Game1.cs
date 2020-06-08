@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 using System.Collections.Generic;
 
 namespace CodeABitLitGame
@@ -63,6 +64,9 @@ namespace CodeABitLitGame
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Start == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Enter))
+                Initialize();
+
             inputTimer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
             newState = Keyboard.GetState();
@@ -76,15 +80,6 @@ namespace CodeABitLitGame
                 inputTimer = 0;
             }
 
-            if(player.currentItem != null && player.currentItemPair != null && itemPairDictionary[player.currentItem.Name] == player.currentItemPair.Name)
-            {
-                boardLayout.items.Remove(player.currentItem);
-                boardLayout.itemPairs.Remove(player.currentItemPair);
-
-                player.currentItem = null;
-                player.currentItemPair = null;
-            }
-
             oldState = newState;
 
             base.Update(gameTime);
@@ -94,9 +89,18 @@ namespace CodeABitLitGame
         {
             player.Update();
 
-            foreach(Enemy enemy in boardLayout.enemies)
+            if (player.currentItem != null && player.currentItemPair != null && itemPairDictionary[player.currentItem.Name] == player.currentItemPair.Name)
             {
-                //enemy.Update();
+                boardLayout.items.Remove(player.currentItem);
+                boardLayout.itemPairs.Remove(player.currentItemPair);
+
+                player.currentItem = null;
+                player.currentItemPair = null;
+            }
+
+            foreach (Enemy enemy in boardLayout.enemies)
+            {
+                enemy.Update();
             }
 
             foreach (Item item in boardLayout.items)

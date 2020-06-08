@@ -87,7 +87,11 @@ namespace CodeABitLitGame
 
             if(gameObject is Enemy)
             {
-                if (Game1.player.positionRectangle.Intersects(rectangle)) { return false; }
+                if (Game1.player.positionRectangle.Intersects(rectangle))
+                {
+                    Game1.player.health--;
+                    return false;
+                }
             }
             else
             {

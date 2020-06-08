@@ -1,0 +1,4 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/Level0.png","C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/bin/DesktopGL/Content/Level0.xnb","TextureProcessor","Texture2DContent",149,1585,0.3201443
+"C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/Player.png","C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/bin/DesktopGL/Content/Player.xnb","TextureProcessor","Texture2DContent",107,4181,0.0069907
+"C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/Wall.png","C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/bin/DesktopGL/Content/Wall.xnb","TextureProcessor","Texture2DContent",109,4181,0.0059824

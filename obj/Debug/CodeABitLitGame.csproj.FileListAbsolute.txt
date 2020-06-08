@@ -17,3 +17,6 @@ C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\obj\Debug\CodeABit
 C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\obj\Debug\CodeABitLitGame.csproj.CopyComplete
 C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\obj\Debug\CodeABitLitGame.exe
 C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\obj\Debug\CodeABitLitGame.pdb
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Debug\Content\Level0.xnb
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Debug\Content\Player.xnb
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Debug\Content\Wall.xnb

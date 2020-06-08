@@ -17,17 +17,6 @@ namespace CodeABitLitGame
         public Vector2 origin = Vector2.Zero;
 
         public Vector2 position;
-        public Vector2 velocity, acceleration;
-
-        public bool physicsBody = false;
-
-        public List<Vector2> positionsList = new List<Vector2>();
-        public List<Vector2> velocityList = new List<Vector2>();
-        public List<Vector2> accelerationList = new List<Vector2>();
-        public List<string> animationsList = new List<string>();
-        public List<int> framesList = new List<int>();
-        public List<bool> flippedList = new List<bool>();
-        public List<bool> onGroundList = new List<bool>();
 
         public Rectangle rect;
         public Rectangle attackRect;
@@ -35,7 +24,6 @@ namespace CodeABitLitGame
 
         public bool onGround = true;
         public bool justEnteredAnimation = false;
-        public bool rewinding = false;
 
         public Rectangle positionRectangle
         {
@@ -86,91 +74,9 @@ namespace CodeABitLitGame
 
         public virtual void Update(GameTime gameTime)
         {
-            Rewind();
-
-            if (physicsBody && !rewinding)
-            {
-                if (!onGround)
-                {
-                    acceleration.Y = 1.25f;
-                }
-                else
-                {
-                    velocity.Y = 0;
-                    acceleration.Y = 0;
-                }
-
-                position += velocity;
-                velocity += acceleration;
-            }
-
             justEnteredAnimation = animations[currentAnimation].currentFrame == 0 && animations[currentAnimation].justEnteredFrame;
 
             UpdateAnimation(gameTime);
-        }
-
-        public void Rewind()
-        {
-            if (!rewinding)
-            {
-                positionsList.Add(position);
-
-                velocityList.Add(velocity);
-
-                accelerationList.Add(acceleration);
-
-                animationsList.Add(currentAnimation);
-
-                framesList.Add(animations[currentAnimation].currentFrame);
-
-                flippedList.Add(flipped);
-
-                onGroundList.Add(onGround);
-            }
-            else
-            {
-                position = positionsList[positionsList.Count - 1];
-                if (positionsList.Count > 1)
-                {
-                    positionsList.RemoveAt(positionsList.Count - 1);
-                }
-
-                velocity = velocityList[velocityList.Count - 1];
-                if (velocityList.Count > 1)
-                {
-                    velocityList.RemoveAt(velocityList.Count - 1);
-                }
-
-                acceleration = accelerationList[accelerationList.Count - 1];
-                if (accelerationList.Count > 1)
-                {
-                    accelerationList.RemoveAt(accelerationList.Count - 1);
-                }
-
-                currentAnimation = animationsList[animationsList.Count - 1];
-                if (animationsList.Count > 1)
-                {
-                    animationsList.RemoveAt(animationsList.Count - 1);
-                }
-
-                animations[currentAnimation].currentFrame = framesList[framesList.Count - 1];
-                if (framesList.Count > 1)
-                {
-                    framesList.RemoveAt(framesList.Count - 1);
-                }
-
-                flipped = flippedList[flippedList.Count - 1];
-                if (flippedList.Count > 1)
-                {
-                    flippedList.RemoveAt(flippedList.Count - 1);
-                }
-
-                onGround = onGroundList[onGroundList.Count - 1];
-                if (onGroundList.Count > 1)
-                {
-                    onGroundList.RemoveAt(onGroundList.Count - 1);
-                }
-            }
         }
 
         public virtual void Draw(SpriteBatch spriteBatch, float XoffSet = 0)

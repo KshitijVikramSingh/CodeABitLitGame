@@ -11,9 +11,11 @@ namespace CodeABitLitGame
         int speed = 4;
 
         public enum awarenessState { aware, unaware };
-        public awarenessState awareness = awarenessState.aware;
+        public awarenessState awareness = awarenessState.unaware;
 
         public Queue<Vector2> chaseTargets;
+
+        Line playerVisiblityLine;
 
         public Enemy(ContentManager content, Vector2 position)
         {
@@ -26,8 +28,40 @@ namespace CodeABitLitGame
             chaseTargets.Enqueue(targetPosition);
         }
 
+        bool isPlayerVisible()
+        {
+            foreach(Wall wall in BoardLayout.currentBoard.walls)
+            {
+                if(LineHelperMethods.checkLineRectangleIntersection(playerVisiblityLine, wall.rectangle))
+                {
+                    return false;
+                }
+            }
+
+            foreach(ItemPair itemPair in BoardLayout.currentBoard.itemPairs)
+            {
+                if(LineHelperMethods.checkLineRectangleIntersection(playerVisiblityLine, itemPair.rectangle))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
         public override void Update()
         {
+            playerVisiblityLine = new Line(positionRectangle.Center, Game1.player.positionRectangle.Center);
+
+            if(awareness == awarenessState.unaware)
+            {
+                if(playerVisiblityLine.Length() <= 96 && isPlayerVisible()) { awareness = awarenessState.aware; }
+            }
+            else
+            {
+                if(playerVisiblityLine.Length() >= 160) { awareness = awarenessState.unaware; }
+            }
+
             if (targetPosition != position)
             {
                 if (position.X < targetPosition.X) { position.X += speed; }
@@ -36,42 +70,40 @@ namespace CodeABitLitGame
                 else if (position.Y > targetPosition.Y) { position.Y -= speed; }
             }
 
+            Vector2 newTarget = chaseTargets.Peek();
+
+            if (targetPosition == chaseTargets.Peek() && chaseTargets.Count > 1)
+            {
+                newTarget = chaseTargets.Dequeue();
+                Game1.canMove = false;
+            }
+
+            if (Game1.canMove)
+            {
+                if (newTarget.X > targetPosition.X && BoardLayout.currentBoard.HasSpaceForMovement(rightRectangle, this))
+                {
+                    targetPosition.X += 32;
+                }
+                else if (newTarget.X < targetPosition.X && BoardLayout.currentBoard.HasSpaceForMovement(leftRectangle, this))
+                {
+                    targetPosition.X -= 32;
+                }
+                else if (newTarget.Y < targetPosition.Y && BoardLayout.currentBoard.HasSpaceForMovement(upRectangle, this))
+                {
+                    targetPosition.Y -= 32;
+                }
+                else if (newTarget.Y > targetPosition.Y && BoardLayout.currentBoard.HasSpaceForMovement(downRectangle, this))
+                {
+                    targetPosition.Y += 32;
+                }
+            }
+
             if (awareness == awarenessState.aware)
             {
                 if(targetPosition != Game1.player.targetPosition && Game1.canMove)
                 {
                     chaseTargets.Enqueue(Game1.player.targetPosition);
                     Game1.canMove = false;
-                }
-                else
-                {
-                    if (Game1.canMove && chaseTargets.Count > 0)
-                    {
-                        Vector2 newTarget = targetPosition;
-
-                        if (targetPosition == chaseTargets.Peek())
-                        {
-                            newTarget = chaseTargets.Dequeue();
-                            Game1.canMove = false;
-                        }
-
-                        if (newTarget.X > targetPosition.X && BoardLayout.currentBoard.HasSpaceForMovement(rightRectangle, this))
-                        {
-                            targetPosition.X += 32;
-                        }
-                        else if (newTarget.X < targetPosition.X && BoardLayout.currentBoard.HasSpaceForMovement(leftRectangle, this))
-                        {
-                            targetPosition.X -= 32;
-                        }
-                        else if (newTarget.Y < targetPosition.Y && BoardLayout.currentBoard.HasSpaceForMovement(upRectangle, this))
-                        {
-                            targetPosition.Y -= 32;
-                        }
-                        else if (newTarget.Y > targetPosition.Y && BoardLayout.currentBoard.HasSpaceForMovement(downRectangle, this))
-                        {
-                            targetPosition.Y += 32;
-                        }
-                    }
                 }
             }
 

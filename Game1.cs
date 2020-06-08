@@ -96,17 +96,12 @@ namespace CodeABitLitGame
 
             foreach(Enemy enemy in boardLayout.enemies)
             {
-                enemy.Update();
+                //enemy.Update();
             }
 
             foreach (Item item in boardLayout.items)
             {
                 item.Update();
-            }
-
-            foreach (ItemPair itemPair in boardLayout.itemPairs)
-            {
-                itemPair.Update();
             }
         }
 

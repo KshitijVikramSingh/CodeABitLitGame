@@ -57,11 +57,6 @@ namespace CodeABitLitGame
             rectangle = new Rectangle(position.ToPoint(), new Point(32, 32));
         }
 
-        public void Update()
-        {
-
-        }
-
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, position, Color.White);

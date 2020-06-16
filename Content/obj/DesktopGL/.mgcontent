@@ -6,14 +6,38 @@
   <SourceFiles>
     <File>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/Axe.png</File>
     <File>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/Door.png</File>
+    <File>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/End.PNG</File>
     <File>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/Enemy.png</File>
+    <File>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/Font.spritefont</File>
+    <File>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/FontLarge.spritefont</File>
     <File>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/Key.png</File>
-    <File>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/Level0.png</File>
+    <File>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/Music/End.ogg</File>
+    <File>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/Music/Game.ogg</File>
+    <File>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/Music/Menu.ogg</File>
     <File>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/Player.png</File>
+    <File>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/Sounds/Attack.wav</File>
+    <File>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/Sounds/Bag.wav</File>
+    <File>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/Sounds/Hit.wav</File>
+    <File>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/Sounds/Step.wav</File>
+    <File>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/Sounds/Tree.wav</File>
+    <File>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/Sounds/Unlock.wav</File>
+    <File>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/Start.PNG</File>
     <File>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/Tree.png</File>
     <File>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/Wall.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

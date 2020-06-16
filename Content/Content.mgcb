@@ -37,6 +37,18 @@
 /processorParam:TextureFormat=Color
 /build:Door.png
 
+#begin End.PNG
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:End.PNG
+
 #begin Enemy.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -48,6 +60,20 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Enemy.png
+
+#begin Font.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Font.spritefont
+
+#begin FontLarge.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:FontLarge.spritefont
 
 #begin Key.png
 /importer:TextureImporter
@@ -61,17 +87,44 @@
 /processorParam:TextureFormat=Color
 /build:Key.png
 
-#begin Level0.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Level0.png
+#begin LevelLayouts/Level1.csv
+/copy:LevelLayouts/Level1.csv
+
+#begin LevelLayouts/Level2.csv
+/copy:LevelLayouts/Level2.csv
+
+#begin LevelLayouts/Level3.csv
+/copy:LevelLayouts/Level3.csv
+
+#begin LevelLayouts/Level4.csv
+/copy:LevelLayouts/Level4.csv
+
+#begin LevelLayouts/Level5.csv
+/copy:LevelLayouts/Level5.csv
+
+#begin LevelLayouts/Level6.csv
+/copy:LevelLayouts/Level6.csv
+
+#begin Minibyte.ttf
+/copy:Minibyte.ttf
+
+#begin Music/End.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/End.ogg
+
+#begin Music/Game.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/Game.ogg
+
+#begin Music/Menu.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/Menu.ogg
 
 #begin Player.png
 /importer:TextureImporter
@@ -84,6 +137,54 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Player.png
+
+#begin Sounds/Attack.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Attack.wav
+
+#begin Sounds/Bag.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Bag.wav
+
+#begin Sounds/Hit.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Hit.wav
+
+#begin Sounds/Step.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Step.wav
+
+#begin Sounds/Tree.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Tree.wav
+
+#begin Sounds/Unlock.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Unlock.wav
+
+#begin Start.PNG
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Start.PNG
 
 #begin Tree.png
 /importer:TextureImporter

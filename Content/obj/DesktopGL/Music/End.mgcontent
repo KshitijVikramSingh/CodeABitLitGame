@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/Music/End.ogg</SourceFile>
+  <SourceTime>2020-06-17T01:16:47.6980617+05:30</SourceTime>
+  <DestFile>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/bin/DesktopGL/Music/End.xnb</DestFile>
+  <DestTime>2020-06-17T01:25:26.7415609+05:30</DestTime>
+  <Importer>OggImporter</Importer>
+  <ImporterTime>2018-12-08T22:05:54+05:30</ImporterTime>
+  <Processor>SongProcessor</Processor>
+  <ProcessorTime>2018-12-08T22:05:54+05:30</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput>
+    <string>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/bin/DesktopGL/Music/End.ogg</string>
+  </BuildOutput>
+</PipelineBuildEvent>

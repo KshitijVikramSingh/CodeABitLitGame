@@ -14,28 +14,52 @@ namespace CodeABitLitGame
         public string Name;
 
         bool selected = false;
+        bool canBeSelected = false;
+
+        Vector2 playerSelectedPosition;
 
         public Item(Texture2D texture, Vector2 position, string Name)
         {
             this.texture = texture;
             this.position = position;
             this.Name = Name;
-
-            rectangle = new Rectangle(position.ToPoint(), new Point(32, 32));
         }
 
         public void Update()
         {
-            if (rectangle.Intersects(Game1.player.positionRectangle))
+            rectangle = new Rectangle(position.ToPoint(), new Point(48, 48));
+
+            if (Game1.player.targetPosition == Game1.player.position && Game1.player.targetPosition != playerSelectedPosition && !selected)
             {
+                canBeSelected = true;
+            }
+
+            if (rectangle.Contains(Game1.player.targetPositionRectangle.Center) && !selected && canBeSelected)
+            {
+                if (Game1.player.currentItem != null && Game1.player.currentItem != this)
+                {
+                    Game1.player.currentItem.canBeSelected = false;
+                    Game1.player.currentItem.selected = false;
+                    Game1.player.currentItem.position = Game1.player.targetPosition;
+                }
+
                 selected = true;
+                playerSelectedPosition = Game1.player.targetPosition;
+
                 Game1.player.currentItem = this;
+                Game1.PlaySound("Bag");
+            }
+
+            if (selected)
+            {
+                position = Game1.player.position;
+                canBeSelected = false;
             }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if(!selected)
+            if(!selected || Game1.player.currentItem != this)
                 spriteBatch.Draw(texture, position, Color.White);
         }
     }
@@ -54,7 +78,7 @@ namespace CodeABitLitGame
             this.position = position;
             this.Name = Name;
 
-            rectangle = new Rectangle(position.ToPoint(), new Point(32, 32));
+            rectangle = new Rectangle(position.ToPoint(), new Point(48, 48));
         }
 
         public void Draw(SpriteBatch spriteBatch)

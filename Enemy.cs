@@ -8,7 +8,7 @@ namespace CodeABitLitGame
 {
     class Enemy : GameObject
     {
-        int speed = 4;
+        int speed = 8;
 
         public enum awarenessState { aware, unaware };
         public awarenessState awareness = awarenessState.unaware;
@@ -16,6 +16,8 @@ namespace CodeABitLitGame
         public Queue<Vector2> chaseTargets;
 
         Line playerVisiblityLine;
+
+        public bool turnComplete = false;
 
         public Enemy(ContentManager content, Vector2 position)
         {
@@ -25,7 +27,7 @@ namespace CodeABitLitGame
             targetPosition = position;
 
             chaseTargets = new Queue<Vector2>();
-            chaseTargets.Enqueue(targetPosition);
+            chaseTargets.Enqueue(targetPosition);        
         }
 
         bool isPlayerVisible()
@@ -49,25 +51,8 @@ namespace CodeABitLitGame
             return true;
         }
 
-        public override void Update()
+        public void UpdatePosition()
         {
-            playerVisiblityLine = new Line(positionRectangle.Center, Game1.player.positionRectangle.Center);
-
-            if(awareness == awarenessState.unaware)
-            {
-                if(playerVisiblityLine.Length() <= 160 && isPlayerVisible()) { awareness = awarenessState.aware; }
-            }
-            else
-            {
-                if(playerVisiblityLine.Length() >= 240)
-                {
-                    awareness = awarenessState.unaware;
-
-                    chaseTargets.Clear();
-                    chaseTargets.Enqueue(targetPosition);
-                }
-            }
-
             if (targetPosition != position)
             {
                 if (position.X < targetPosition.X) { position.X += speed; }
@@ -76,51 +61,107 @@ namespace CodeABitLitGame
                 else if (position.Y > targetPosition.Y) { position.Y -= speed; }
             }
 
-            Vector2 newTarget = chaseTargets.Peek();
+            base.Update();
+        }
 
-            if (targetPosition == chaseTargets.Peek() && chaseTargets.Count > 1)
+        public override void Update()
+        {
+            playerVisiblityLine = new Line(positionRectangle.Center, Game1.player.positionRectangle.Center);
+
+            if(awareness == awarenessState.unaware)
             {
-                newTarget = chaseTargets.Dequeue();
-                Game1.canMove = false;
+                if(playerVisiblityLine.Length() <= 384  && playerVisiblityLine.angle() % MathHelper.PiOver2 == 0 && isPlayerVisible()) { awareness = awarenessState.aware; }
+            }
+            else
+            {
+                if(playerVisiblityLine.Length() >= 480)
+                {
+                    awareness = awarenessState.unaware;
+
+                    chaseTargets.Clear();
+                    chaseTargets.Enqueue(targetPosition);
+                }
             }
 
-            if (Vector2.Distance(Game1.player.position, position) < Vector2.Distance(newTarget, position))
+            if(awareness == awarenessState.aware && !turnComplete && !anyValidRectanglesIntersect(Game1.player))
             {
-                chaseTargets.Clear();
-                chaseTargets.Enqueue(Game1.player.targetPosition);
-                newTarget = Game1.player.targetPosition;
-            }
+                Vector2 newTarget = chaseTargets.Peek();
 
-            if (Game1.canMove)
-            {
+                while (targetPosition == chaseTargets.Peek())
+                {
+                    if (targetPosition == chaseTargets.Peek() && chaseTargets.Count > 1)
+                    {
+                        newTarget = chaseTargets.Dequeue();
+                    }
+                    else { break; }                   
+                }
+
                 if (newTarget.X > targetPosition.X && BoardLayout.currentBoard.HasSpaceForMovement(rightRectangle, this))
                 {
-                    targetPosition.X += 32;
+                    targetPosition.X += 48;
+                    turnComplete = true;
                 }
                 else if (newTarget.X < targetPosition.X && BoardLayout.currentBoard.HasSpaceForMovement(leftRectangle, this))
                 {
-                    targetPosition.X -= 32;
+                    targetPosition.X -= 48;
+                    turnComplete = true;
                 }
                 else if (newTarget.Y < targetPosition.Y && BoardLayout.currentBoard.HasSpaceForMovement(upRectangle, this))
                 {
-                    targetPosition.Y -= 32;
+                    targetPosition.Y -= 48;
+                    turnComplete = true;
                 }
                 else if (newTarget.Y > targetPosition.Y && BoardLayout.currentBoard.HasSpaceForMovement(downRectangle, this))
                 {
-                    targetPosition.Y += 32;
+                    targetPosition.Y += 48;
+                    turnComplete = true;
+                }
+                else { turnComplete = true; }
+            }
+            else
+            {
+                if (anyValidRectanglesIntersect(Game1.player) && !turnComplete)
+                {
+                    Game1.player.health--;
+                    Game1.PlaySound("Hit");
+                    turnComplete = true;
+                }
+                else
+                {
+                    chaseTargets.Clear();
+                    chaseTargets.Enqueue(Game1.player.targetPosition);
+                    turnComplete = true;
                 }
             }
 
             if (awareness == awarenessState.aware)
             {
-                if (targetPosition != Game1.player.targetPosition && Game1.canMove)
+                if (targetPosition != Game1.player.targetPosition)
                 {
                     chaseTargets.Enqueue(Game1.player.targetPosition);
-                    Game1.canMove = false;
                 }
             }
-
-            base.Update();
+            else { turnComplete = true; }
         }
+
+        bool anyRectanglesIntersect(GameObject gameObject)
+        {
+            foreach (Rectangle rect in rectangles)
+            {
+                if (gameObject.positionRectangle.Intersects(rect)) { return true; }
+            }
+
+            return false;
+        }
+
+        bool anyValidRectanglesIntersect(GameObject gameObject)
+        {
+            foreach (Rectangle rect in validRectangles)
+            {
+                if (gameObject.positionRectangle.Intersects(rect)) { return true; }
+            }
+
+            return false;
+        }        
     }
 }

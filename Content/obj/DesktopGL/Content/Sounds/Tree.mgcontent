@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/Sounds/Tree.wav</SourceFile>
+  <SourceTime>2020-06-16T18:00:37.0391639+05:30</SourceTime>
+  <DestFile>C:/Users/Kshitij/source/repos/CodeABitLitGame/CodeABitLitGame/Content/bin/DesktopGL/Content/Sounds/Tree.xnb</DestFile>
+  <DestTime>2020-06-16T18:01:11.0506335+05:30</DestTime>
+  <Importer>WavImporter</Importer>
+  <ImporterTime>2018-12-08T22:05:54+05:30</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2018-12-08T22:05:54+05:30</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

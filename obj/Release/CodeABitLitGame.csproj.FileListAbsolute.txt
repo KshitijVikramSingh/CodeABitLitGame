@@ -1,0 +1,49 @@
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\MonoGame.Framework.dll.config
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\Sounds\Attack.xnb
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\Sounds\Bag.xnb
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\Sounds\Hit.xnb
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\Sounds\Step.xnb
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\Sounds\Tree.xnb
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\Sounds\Unlock.xnb
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\Music\End.ogg
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\Music\End.xnb
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\Music\Game.ogg
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\Music\Game.xnb
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\Music\Menu.ogg
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\Music\Menu.xnb
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\LevelLayouts\Level1.csv
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\LevelLayouts\Level1.txt
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\LevelLayouts\Level2.csv
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\LevelLayouts\Level3.csv
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\LevelLayouts\Level4.csv
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\LevelLayouts\Level5.csv
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\LevelLayouts\Level6.csv
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\Axe.xnb
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\Door.xnb
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\End.xnb
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\Enemy.xnb
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\Font.xnb
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\FontLarge.xnb
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\Key.xnb
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\Minibyte.ttf
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\Player.xnb
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\Start.xnb
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\Tree.xnb
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Content\Wall.xnb
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\x86\SDL2.dll
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\x64\SDL2.dll
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\x86\soft_oal.dll
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\x64\soft_oal.dll
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\x86\libSDL2-2.0.so.0
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\x64\libSDL2-2.0.so.0
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\x86\libopenal.so.1
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\x64\libopenal.so.1
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\libSDL2-2.0.0.dylib
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\libopenal.1.dylib
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Tiny Dungeon.exe
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\Tiny Dungeon.pdb
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\bin\DesktopGL\AnyCPU\Release\MonoGame.Framework.dll
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\obj\Release\CodeABitLitGame.csproj.CoreCompileInputs.cache
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\obj\Release\CodeABitLitGame.csproj.CopyComplete
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\obj\Release\Tiny Dungeon.exe
+C:\Users\Kshitij\source\repos\CodeABitLitGame\CodeABitLitGame\obj\Release\Tiny Dungeon.pdb
